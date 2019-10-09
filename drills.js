@@ -12,6 +12,7 @@ function main1() {
     //indexes searched: 0-10, 6-10, 6-7, 7-7, -1
     //numbers checked :  12,   17,  14,  15,  novalue => 16 is not in the array so it returns -1
 
+    
 }
 
 main1()
