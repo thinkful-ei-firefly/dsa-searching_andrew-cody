@@ -1,0 +1,29 @@
+.App {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form > label {
+    margin-bottom: 10px;
+}
+
+form > input {
+    margin-bottom: 25px;
+}
+
+form > .buttonHolder {
+    display: flex;
+    justify-content: space-around;
+}
+
+form > .buttonHolder > button {
+    width: 85px;
+}
