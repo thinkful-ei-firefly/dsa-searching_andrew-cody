@@ -1,4 +1,4 @@
-const indexOf = (array, value) => {
+const linearSearch = (array, value) => {
     for (let i = 0; i < array.length; i++) {
         if (array[i] == value) {
             return i;
@@ -7,4 +7,4 @@ const indexOf = (array, value) => {
     return -1;
 };
 
-module.exports = indexOf
+module.exports = linearSearch
