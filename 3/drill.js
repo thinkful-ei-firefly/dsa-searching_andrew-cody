@@ -3,8 +3,10 @@ const adjustedBinarySearch = require('./adjustedBinarySearch')
 const linearSearch = require('./linearSearch')
 
 function searchLibrary(library, dewey, title) {
-    const deweyA = dewey.slice(0, 3)
-	const deweyB = dewey.slice(4)
+    let deweyA = dewey.slice(0, 3)
+    let deweyB = dewey.slice(4)
+    deweyA = parseInt(deweyA)
+    deweyB = parseInt(deweyB)
     let deweyMainMatch = adjustedBinarySearch(deweyA, library.deweyMain, 0, library.deweyMain.length)
     if(deweyMainMatch === -1) {
         throw new Error('Book Not Found')

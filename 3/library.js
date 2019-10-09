@@ -17,8 +17,8 @@ function makeLibrary() {
     let deweySub = []
     let titles = []
 
-    for (let i = 0; i < library.length; i++) {
-        let book = library[i]
+    for (let i = 0; i < bookList.length; i++) {
+        let book = bookList[i]
         let deweyA = book.dewey.slice(0, 3)
         let deweyB = book.dewey.slice(4)
         let title = book.title
@@ -26,6 +26,7 @@ function makeLibrary() {
         deweySub.push(deweyB)
         titles.push(title)
     }
+    let library = bookList;
 
     return { library, deweyMain, deweySub, titles }
 
