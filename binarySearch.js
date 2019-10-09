@@ -7,6 +7,7 @@ const binarySearch = (array, value, start, end) => {
     }
 
     const index = Math.floor((start + end) / 2);
+    //console.log(`index is ${index}`)
     const item = array[index];
 
     //console.log(start, end);
