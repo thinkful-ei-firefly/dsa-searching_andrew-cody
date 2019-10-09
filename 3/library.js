@@ -20,7 +20,9 @@ function makeLibrary() {
     for (let i = 0; i < bookList.length; i++) {
         let book = bookList[i]
         let deweyA = book.dewey.slice(0, 3)
+        deweyA = parseInt(deweyA)
         let deweyB = book.dewey.slice(4)
+        deweyB = parseInt(deweyB)
         let title = book.title
         deweyMain.push(deweyA)
         deweySub.push(deweyB)

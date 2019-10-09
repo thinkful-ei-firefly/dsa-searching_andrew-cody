@@ -1,8 +1,10 @@
 const linearSearch = (array, value, start, end) => {
     var start = start === undefined ? 0 : start;
     var end = end === undefined ? array.length : end;
-    
-    if (start > end) {
+    if (start === end && array[start] == value) {
+        return start
+    }
+    else if (start > end) {
         return -1;
     }
 
@@ -11,6 +13,7 @@ const linearSearch = (array, value, start, end) => {
             return i;
         }
     }
+    
     return -1;
 };
 

@@ -7,15 +7,15 @@ function searchLibrary(library, dewey, title) {
     let deweyB = dewey.slice(4)
     deweyA = parseInt(deweyA)
     deweyB = parseInt(deweyB)
-    let deweyMainMatch = adjustedBinarySearch(deweyA, library.deweyMain, 0, library.deweyMain.length)
+    let deweyMainMatch = adjustedBinarySearch(library.deweyMain, deweyA, 0, library.deweyMain.length)
     if(deweyMainMatch === -1) {
         throw new Error('Book Not Found')
     }
-    let deweySubMatch = adjustedBinarySearch(deweyB, library.deweySub, deweyMainMatch.start, deweyMainMatch.end)
+    let deweySubMatch = adjustedBinarySearch(library.deweySub, deweyB, deweyMainMatch.start, deweyMainMatch.end)
     if(deweySubMatch === -1) {
         throw new Error('Book Not Found')
     }
-    let resultIndex = linearSearch(title, titles, deweySubMatch.start, deweySubMatch.end)
+    let resultIndex = linearSearch(library.titles, title, deweySubMatch.start, deweySubMatch.end)
     if(resultIndex === -1) {
         throw new Error('Book Not Found')
     }
@@ -24,10 +24,10 @@ function searchLibrary(library, dewey, title) {
 
 function main() {
     const library = makeLibrary()
-    let book1Index = searchLibrary(library, '005.133', 'Teach Yourself C++ in 21 Days')
+    let book1Index = searchLibrary(library, '005.133', 'Teach Yourself C++ In 21 Days')
     let book2Index = searchLibrary(library, '231.7652', 'Starlight and Time')
-    console.log(library[book1Index])
-    console.log(library[book2Index])
+    console.log(library.library[book1Index])
+    console.log(library.library[book2Index])
     try {
         searchLibrary(library, '5', 'No')
     }

@@ -8,7 +8,6 @@
 const adjustedBinarySearch = (array, value, start, end) => {
     var start = start === undefined ? 0 : start;
     var end = end === undefined ? array.length : end;
-    // console.log(value)
 
     if (start > end) {
         return -1;
@@ -16,11 +15,7 @@ const adjustedBinarySearch = (array, value, start, end) => {
 
     const index = Math.floor((start + end) / 2);
     const item = array[index];
-    // console.log(item)
-
-    //console.log(start, end);
     if (item == value) {
-        const anchorIndex = index;
         let s = index
         let e = index
         //do some search to find start index
