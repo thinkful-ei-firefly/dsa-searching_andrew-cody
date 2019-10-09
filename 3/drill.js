@@ -5,9 +5,18 @@ const linearSearch = require('./linearSearch')
 function searchLibrary(library, dewey, title) {
     const deweyA = dewey.slice(0, 3)
 	const deweyB = dewey.slice(4)
-	let deweyMainMatch = adjustedBinarySearch(deweyA, library.deweyMain, 0, library.deweyMain.length)
-	let deweySubMatch = adjustedBinarySearch(deweyB, library.deweySub, deweyMainMatch.start, deweyMainMatch.end)
-	let resultIndex = linearSearch(title, titles, deweySubMatch.start, deweySubMatch.end)
+    let deweyMainMatch = adjustedBinarySearch(deweyA, library.deweyMain, 0, library.deweyMain.length)
+    if(deweyMainMatch === -1) {
+        throw new Error('Book Not Found')
+    }
+    let deweySubMatch = adjustedBinarySearch(deweyB, library.deweySub, deweyMainMatch.start, deweyMainMatch.end)
+    if(deweySubMatch === -1) {
+        throw new Error('Book Not Found')
+    }
+    let resultIndex = linearSearch(title, titles, deweySubMatch.start, deweySubMatch.end)
+    if(resultIndex === -1) {
+        throw new Error('Book Not Found')
+    }
 	return resultIndex
 }
 
