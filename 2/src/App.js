@@ -5,7 +5,7 @@ import {linearSearchCount, binarySearchCount} from './helpers/helpers'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {arrayInput: '[0, 1, 2, 3, 4, 5]', valueInput: '5', linearResp: null, binaryResp: null}
+    this.state = {arrayInput: null, valueInput: null, linearResp: null, binaryResp: null}
     this.handleArrChange = this.handleArrChange.bind(this)
     this.handleValChange = this.handleValChange.bind(this)
   }
@@ -35,16 +35,17 @@ class App extends React.Component {
       <div className="App">
         <form>
           <label htmlFor="arrayInput">Array to search in</label>
-          <input type="text" id="arrayInput" value="[0, 1, 2, 3, 4, 5]" onChange={(e) => { this.handleArrChange(e) }}></input>
+          <input type="text" id="arrayInput"  onChange={(e) => { this.handleArrChange(e) }}></input>
           <label htmlFor="valueInput">Value to search for</label>
-          <input type="text" id="valueInput" value="5" onChange={(e) => { this.handleValChange(e) }}></input>
+          <input type="text" id="valueInput" onChange={(e) => { this.handleValChange(e) }}></input>
           <div className="buttonHolder">
             <button type="button" onClick={(e) => { handleSubmit(e) }}>Submit</button>
             <button type="button" onClick={(e) => { handleReset(e) }}>Reset</button>
           </div>
         </form>
-        <div className="">
-
+        <div className="resp">
+          <p>{this.state.linearResp?this.state.linearResp:''}</p>
+          <p>{this.state.binaryResp?this.state.binaryResp:''}</p>
         </div>
       </div>
     )
