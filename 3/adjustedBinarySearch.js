@@ -31,11 +31,18 @@ const adjustedBinarySearch = (array, value, start, end) => {
     //console.log(start, end);
     if (item.dewey == value) {
         const anchorIndex = index;
+        let start = anchorIndex
+        let end = anchorIndex
         //do some search to find start index
-        
+        while(array[index - 1].dewey === item.dewey){
+            start -= index
+        }
         //do some search to find end index
-        // return {start: startIndex, end: endIndex}
-        return item
+        while(array[index + 1].dewey === item.dewey){
+            start += index
+        }
+        return {start: startIndex, end: endIndex}
+        // return index
     }
     else if (parseFloat(item.dewey) < parseFloat(value)) {
         return adjustedBinarySearch(array, value, index + 1, end);
