@@ -1,9 +1,9 @@
 import React from 'react';
-
+import {linearSearchCount, binarySearchCount} from './helpers/helpers'
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {arrayInput: '[0, 1, 2, 3, 4, 5]', valueInput: '5'}
+    this.state = {arrayInput: '[0, 1, 2, 3, 4, 5]', valueInput: '5', linearResp: null, binaryResp: null}
     this.handleArrChange = this.handleArrChange.bind(this)
     this.handleValChange = this.handleValChange.bind(this)
   }
@@ -18,7 +18,12 @@ class App extends React.Component {
   render() {
     const handleSubmit = (e) => {
       console.log('submit button pushed')
-    }
+      const linResp = linearSearchCount(this.state.arrayInput, this.state.valueInput)
+      const binResp = binarySearchCount(this.state.arrayInput, this.state.valueInput)
+      console.log(linResp)
+      console.log(binResp)
+      this.setState({linearResp: linResp, binaryResp: binResp})
+  }
   
     const handleReset = (e) => {
       console.log('reset button pushed')
@@ -34,6 +39,9 @@ class App extends React.Component {
           <button type="button" onClick={(e) => {handleSubmit(e)}}>Submit</button>
           <button type="button" onClick={(e) => {handleReset(e)}}>Reset</button>
         </form>
+        <div className="">
+
+        </div>
       </div>
     )
   };
