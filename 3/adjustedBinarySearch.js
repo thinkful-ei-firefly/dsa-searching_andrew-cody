@@ -16,7 +16,10 @@ const adjustedBinarySearch = (array, value, start, end) => {
 
     //console.log(start, end);
     if (item == value) {
-        return index;
+        const anchorIndex = index;
+        //do some search to find start index
+        //do some search to find end index
+        return {start: startIndex, end: endIndex}
     }
     else if (item < value) {
         return binarySearch(array, value, index + 1, end);
