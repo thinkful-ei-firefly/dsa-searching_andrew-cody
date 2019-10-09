@@ -22,8 +22,8 @@ const adjustedBinarySearch = (array, value, start, end) => {
     //console.log(start, end);
     if (item == value) {
         const anchorIndex = index;
-        let s = 0
-        let e = anchorIndex
+        let startIndex = 0
+        let endIndex = anchorIndex
         //do some search to find start index
         while(array[index - 1] === item){
             s -= index
