@@ -1,5 +1,12 @@
-const linearSearch = (array, value) => {
-    for (let i = 0; i < array.length; i++) {
+const linearSearch = (array, value, start, end) => {
+    var start = start === undefined ? 0 : start;
+    var end = end === undefined ? array.length : end;
+    
+    if (start > end) {
+        return -1;
+    }
+
+    for (let i = start; i < end; i++) {
         if (array[i] == value) {
             return i;
         }
