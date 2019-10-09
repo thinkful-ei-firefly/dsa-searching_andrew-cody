@@ -8,12 +8,26 @@ function makeLibrary() {
         { author: 'Flanagan, David', dewey: '005.2762', title: 'JavaScript: The Definitive Guide' },
         { author: 'Schmidt, Meinhard', dewey: '005.44684', title: 'Windows Vista for Dummies' },
         { author: 'Zondervan', dewey: '220.52081', title: 'NIV Study Bible' },
-        { author:'Humphries, Russell, Dr.', dewey: '231.7652', title: 'Starlight and Time' },
+        { author: 'Humphries, Russell, Dr.', dewey: '231.7652', title: 'Starlight and Time' },
         { author: 'Jane, Frederick Thomas', dewey: '623.82509051', title: 'Jane\'s Fighting Ships' },
         { author: 'Norris, Chuck', dewey: '796.8092', title: 'The Official Chuck Norris Fact Book' }
-      ]
+    ]
 
-      return {library, deweyMain, deweySub, titles}
+    let deweyMain = []
+    let deweySub = []
+    let titles = []
+
+    for (let i = 0; i < library.length; i++) {
+        let book = library[i]
+        let deweyA = book.dewey.slice(0, 3)
+        let deweyB = book.dewey.slice(4)
+        let title = book.title
+        deweyMain.push(deweyA)
+        deweySub.push(deweyB)
+        titles.push(title)
+    }
+
+    return { library, deweyMain, deweySub, titles }
 
 }
 
