@@ -15,7 +15,6 @@ function main1() {
 
 main1()
 
-// 3.
-function deweyD(d, title){
-
-}
+// 4) a. 14 19 15 27 25 35 79 90 91 89 35                                                                              
+//    b.8 6 5 7 10 9 11             
+//             
