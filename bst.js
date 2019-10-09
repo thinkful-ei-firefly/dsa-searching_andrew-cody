@@ -134,36 +134,38 @@ class BST {
         }
     }
 
-    dfs(values=[]) {
+    dfsPostOrder(keys=[]) {
         if (this.left) {
-            values = this.left.dfs(values);
+            keys = this.left.dfsPostOrder(keys);
         }
-        values.push(this.value);
-
         if (this.right) {
-            values = this.right.dfs(values);
+            keys = this.right.dfsPostOrder(keys);
         }
-        return values;
+        keys.push(this.key);
+        return keys;
     }
 
-    bfs(tree, values = []) {
-        const queue = new Queue(); // Assuming a Queue is implemented (refer to previous lesson on Queue)
-        const node = tree.root;
-        queue.enqueue(node);
-        while (queue.length) {
-            const node = queue.dequeue(); //remove from the queue
-            values.push(node.value); // add that value from the queue to an array
-
-            if (node.left) {
-                queue.enqueue(node.left); //add left child to the queue
-            }
-
-            if (node.right) {
-                queue.enqueue(node.right); // add right child to the queue
-            }
+    dfsPreOrder(keys=[]) {
+        keys.push(this.key);
+        if (this.left) {
+            keys = this.left.dfsPreOrder(keys);
         }
+        if (this.right) {
+            keys = this.right.dfsPreOrder(keys);
+        }
+   
+        return keys;
+    }
 
-        return values;
+    dfsInOrder(keys=[]) {
+        if (this.left) {
+            keys = this.left.dfsInOrder(keys);
+        }
+        keys.push(this.key);
+        if (this.right) {
+            keys = this.right.dfsInOrder(keys);
+        }
+        return keys;
     }
 
 }

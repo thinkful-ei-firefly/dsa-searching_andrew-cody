@@ -13,8 +13,19 @@ function main1() {
     //numbers checked :  12,   17,  14,  15,  novalue => 16 is not in the array so it returns -1
 }
 
-main1()
-
 // 4) a. 14 19 15 27 25 35 79 90 91 89 35                                                                              
 //    b.8 6 5 7 10 9 11             
 //             
+
+function main5() {
+    let binTreeArray = [25, 15, 50, 10, 24, 35, 70, 4, 12, 18, 31, 44, 66, 90, 22]
+    let tree = new BST
+    for (let i=0; i<binTreeArray.length; i++) {
+        tree.insert(binTreeArray[i])
+    }
+    console.log(tree.dfsPreOrder())
+    console.log(tree.dfsInOrder())
+    console.log(tree.dfsPostOrder())
+}
+
+main5()
